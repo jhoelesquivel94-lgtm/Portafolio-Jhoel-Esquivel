@@ -14,9 +14,8 @@ const skills = [
     { name: 'MySQL', level: 75 },
     { name: 'Python', level: 70 },
     { name: 'HTML5', level: 65 },
-    { name: 'Linux', level: 60 },
-    { name: 'Servidores Windows', level: 55 },
-    { name: 'JavaScript', level: 50 },
+    { name: 'Tailwind CSS', level: 60 },
+    { name: 'React', level: 55 },
 ];
 
 const softSkills = ['Trabajo en equipo', 'Comunicación', 'Flexibilidad', 'Resolución de problemas'];
@@ -284,7 +283,7 @@ function terminal() {
 `{
   <span class="t-k">"ciudad"</span>: <span class="t-s">"Iquique, Chile"</span>,
   <span class="t-k">"estudio"</span>: <span class="t-s">"Ing. en Informática · INACAP"</span>,
-  <span class="t-k">"stack"</span>: [<span class="t-s">"MySQL"</span>, <span class="t-s">"Python"</span>, <span class="t-s">"JavaScript"</span>, <span class="t-s">"Linux"</span>],
+  <span class="t-k">"stack"</span>: [<span class="t-s">"MySQL"</span>, <span class="t-s">"Python"</span>, <span class="t-s">"React"</span>, <span class="t-s">"Tailwind"</span>],
   <span class="t-k">"busco"</span>: <span class="t-s">"proyectos y práctica"</span>
 }` },
         { cmd: 'ls proyectos/' },
