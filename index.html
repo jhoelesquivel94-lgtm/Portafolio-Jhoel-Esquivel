@@ -4,173 +4,132 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jhoel Esquivel — Desarrollo de software desde Iquique</title>
-    <meta name="description" content="Portafolio de Jhoel Esquivel, estudiante de Ingeniería en Informática en INACAP Iquique. Sitios y sistemas web: reservas, catálogos y portales." />
+    <meta name="description" content="Portafolio de Jhoel Esquivel, estudiante de Ingeniería en Informática en INACAP Iquique." />
     <meta name="theme-color" content="#070912" />
-    <meta property="og:title" content="Jhoel Esquivel — Portafolio" />
-    <meta property="og:description" content="Sitios y sistemas web hechos desde Iquique, Chile." />
-    <meta property="og:image" content="img/jm1.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="motion.css?v=7" />
     <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
 </head>
-<body>
-    <a class="skip" href="#sobre-mi">Saltar al contenido</a>
+<body class="is-loading">
+    <!-- Precarga: contador + cortina -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="pre-count"><span id="pre-num">0</span></div>
+        <div class="pre-name">Jhoel Esquivel</div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"><span id="cursor-label"></span></div>
 
     <header class="nav" id="nav">
         <div class="nav-inner">
             <a href="#inicio" class="nav-logo" aria-label="Inicio">je<span>.</span></a>
             <nav class="nav-links" id="nav-links" aria-label="Secciones">
                 <a href="#sobre-mi">Sobre mí</a>
-                <a href="#trayectoria">Trayectoria</a>
-                <a href="#habilidades">Habilidades</a>
                 <a href="#proyectos">Proyectos</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#trayectoria">Trayectoria</a>
                 <a href="#certificaciones">Certificados</a>
                 <a href="#contacto" class="nav-cta">Escríbeme</a>
             </nav>
             <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
         </div>
+        <div class="m-progress" id="m-progress"></div>
     </header>
 
     <main>
-        <!-- INICIO: paisaje 3D de dunas -->
-        <section class="hero" id="inicio">
+        <!-- HERO -->
+        <section class="hero m-hero" id="inicio">
             <canvas id="dunes" aria-hidden="true"></canvas>
             <div class="hero-fade" aria-hidden="true"></div>
-
-            <div class="container hero-content">
-                <p class="hero-status"><span class="pulse"></span>Disponible para proyectos y práctica profesional</p>
-                <h1 class="hero-title" aria-label="Jhoel Esquivel">
-                    <span class="line"><span class="word">Jhoel</span></span>
-                    <span class="line"><span class="word">Esquivel</span></span>
+            <div class="container m-hero-inner">
+                <p class="m-hero-top">Disponible para proyectos y práctica profesional</p>
+                <h1 class="m-name" aria-label="Jhoel Esquivel">
+                    <span class="m-name-row" data-split>Jhoel</span>
+                    <span class="m-name-row m-name-row--2" data-split>Esquivel</span>
                 </h1>
-                <p class="hero-desc">
-                    Estudiante de Ingeniería en Informática en INACAP. Construyo sitios y sistemas web
-                    —reservas, catálogos, portales— para gente real, desde Iquique.
-                </p>
-                <div class="hero-actions">
-                    <a href="#proyectos" class="btn btn-sand">Ver proyectos</a>
-                    <a href="#contacto" class="btn btn-line">Contactar</a>
+                <div class="m-hero-bottom">
+                    <p class="m-hero-desc">Estudiante de Ingeniería en Informática en INACAP. Construyo sitios y sistemas web para gente real, desde Iquique.</p>
+                    <a href="#sobre-mi" class="m-scroll" data-cursor="Bajar">
+                        <span>Desliza</span>
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                    </a>
                 </div>
-            </div>
-
-            <div class="hero-coords container" aria-hidden="true">
-                <span>20°13′S · 70°09′W</span>
-                <span>Iquique, Chile</span>
             </div>
         </section>
 
-        <!-- SOBRE MÍ -->
-        <section class="section" id="sobre-mi">
-            <div class="container about">
-                <div class="about-text">
-                    <h2 class="h2">Sobre mí</h2>
-                    <p class="lead">
-                        Encontré en la programación una forma de crear soluciones que impactan la vida de las personas.
-                    </p>
-                    <p>
-                        Desde pequeño me ha fascinado entender cómo funcionan las cosas, y hoy canalizo esa curiosidad en el
-                        desarrollo de software. Me considero proactivo, organizado y con una gran capacidad para trabajar en equipo.
-                        Disfruto los desafíos y aprender cosas nuevas, lo que me ha llevado a especializarme en diferentes áreas de la informática.
-                    </p>
-                    <p>
-                        Actualmente curso Ingeniería en Informática en INACAP Iquique, donde combino la formación académica con
-                        proyectos prácticos. Mi meta es contribuir a proyectos tecnológicos que realmente marquen la diferencia.
-                    </p>
-                    <dl class="contact-list">
-                        <div><dt>Teléfono</dt><dd><a href="tel:+56920784002">+56 9 2078 4002</a></dd></div>
-                        <div><dt>Correo</dt><dd><a href="mailto:jhoelesquivel94@gmail.com">jhoelesquivel94@gmail.com</a></dd></div>
-                        <div><dt>Dirección</dt><dd>Laguna Verde Psje Libertad #2998, Iquique</dd></div>
-                    </dl>
-                </div>
+        <!-- SOBRE MÍ: palabras que se encienden con el scroll -->
+        <section class="m-about" id="sobre-mi">
+            <div class="container">
+                <p class="m-manifesto" id="manifesto">Encontré en la programación una forma de crear soluciones que impactan la vida de las personas. Soy proactivo, organizado y disfruto los desafíos. Hoy estudio Ingeniería en Informática en INACAP Iquique y combino la formación académica con proyectos reales.</p>
+                <dl class="contact-list m-contact-list">
+                    <div><dt>Teléfono</dt><dd><a href="tel:+56920784002">+56 9 2078 4002</a></dd></div>
+                    <div><dt>Correo</dt><dd><a href="mailto:jhoelesquivel94@gmail.com">jhoelesquivel94@gmail.com</a></dd></div>
+                    <div><dt>Dirección</dt><dd>Laguna Verde Psje Libertad #2998, Iquique</dd></div>
+                </dl>
+            </div>
+        </section>
 
-                <div class="terminal-wrap">
-                    <div class="terminal tilt" id="terminal">
-                        <div class="terminal-bar">
-                            <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
-                            <span class="terminal-title">jhoel@iquique ~ portafolio</span>
-                        </div>
-                        <pre class="terminal-body" id="terminal-body" aria-label="Terminal con mi perfil"></pre>
-                    </div>
+        <!-- PROYECTOS: scroll horizontal fijado -->
+        <section class="m-projects" id="proyectos">
+            <div class="m-projects-pin" id="m-projects-pin">
+                <div class="m-projects-head container">
+                    <h2 class="h2">Proyectos</h2>
+                    <div class="m-counter"><span id="m-cur">1</span> / <span id="m-total">3</span></div>
                 </div>
+                <div class="m-hscroll" id="m-hscroll"></div>
+            </div>
+        </section>
+
+        <!-- HABILIDADES -->
+        <section class="section" id="habilidades">
+            <div class="container">
+                <h2 class="h2 m-title" data-split>Habilidades</h2>
+                <ul class="m-skills" id="m-skills"></ul>
+                <ul class="soft-list m-soft" id="soft-list" aria-label="Habilidades socioemocionales"></ul>
             </div>
         </section>
 
         <!-- TRAYECTORIA -->
         <section class="section" id="trayectoria">
             <div class="container">
-                <h2 class="h2">Trayectoria</h2>
-                <ol class="timeline" id="timeline"></ol>
-            </div>
-        </section>
-
-        <!-- HABILIDADES -->
-        <section class="section" id="habilidades">
-            <div class="container skills-layout">
-                <div>
-                    <h2 class="h2">Habilidades</h2>
-                    <p class="muted">Herramientas que uso a diario y el nivel en que me siento hoy con cada una.</p>
-                    <ul class="soft-list" id="soft-list" aria-label="Habilidades socioemocionales"></ul>
+                <h2 class="h2 m-title" data-split>Trayectoria</h2>
+                <div class="m-tl">
+                    <div class="m-tl-line"><span id="m-tl-fill"></span></div>
+                    <ol id="timeline" class="m-tl-list"></ol>
                 </div>
-                <ul class="skill-list" id="skill-list"></ul>
-            </div>
-        </section>
-
-        <!-- PROYECTOS: carrusel 3D -->
-        <section class="section section-projects" id="proyectos">
-            <div class="container">
-                <div class="projects-head">
-                    <h2 class="h2">Proyectos</h2>
-                    <p class="muted">Sitios publicados y en uso. Arrastra, usa las flechas o toca una tarjeta lateral.</p>
-                </div>
-            </div>
-            <div class="stage" id="stage" tabindex="0" aria-roledescription="carrusel" aria-label="Proyectos">
-                <div class="stage-track" id="stage-track"></div>
-            </div>
-            <div class="stage-controls container">
-                <button class="round" id="prev" aria-label="Proyecto anterior">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <div class="stage-dots" id="stage-dots" role="tablist"></div>
-                <button class="round" id="next" aria-label="Proyecto siguiente">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
             </div>
         </section>
 
         <!-- CERTIFICACIONES -->
         <section class="section" id="certificaciones">
             <div class="container">
-                <h2 class="h2">Certificaciones</h2>
+                <h2 class="h2 m-title" data-split>Certificaciones</h2>
                 <p class="muted">900 horas de formación técnica certificada por INACAP. Puedes descargar cada certificado.</p>
                 <ul class="cert-list" id="cert-list"></ul>
             </div>
         </section>
 
         <!-- CONTACTO -->
-        <section class="section" id="contacto">
-            <div class="container">
-                <div class="contact">
-                    <h2 class="contact-title">¿Buscas un programador comprometido?</h2>
-                    <p class="contact-desc">
-                        Estoy disponible para colaborar en proyectos de desarrollo de software, aprender nuevas tecnologías y aportar
-                        mis habilidades en trabajo en equipo y resolución de problemas.
-                    </p>
-                    <div class="contact-actions">
-                        <a href="mailto:jhoelesquivel94@gmail.com" class="btn btn-sand btn-lg">Enviar un correo</a>
-                        <button class="btn btn-line btn-lg" id="copy-email" data-email="jhoelesquivel94@gmail.com">Copiar correo</button>
-                    </div>
-                    <div class="socials">
-                        <a href="https://github.com/jhoelesquivel94-lgtm/Projects" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-                            GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/jhoel-esquivel-68459226a/" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            LinkedIn
-                        </a>
-                    </div>
+        <section class="m-contact" id="contacto">
+            <div class="m-marquee" aria-hidden="true">
+                <div class="m-marquee-track" id="marquee">
+                    <span>Hablemos</span><span class="star">✦</span><span>Hablemos</span><span class="star">✦</span><span>Hablemos</span><span class="star">✦</span><span>Hablemos</span><span class="star">✦</span>
+                </div>
+            </div>
+            <div class="container m-contact-inner">
+                <h2 class="m-contact-title">¿Buscas un programador comprometido?</h2>
+                <p class="contact-desc">Estoy disponible para colaborar en proyectos de desarrollo de software, aprender nuevas tecnologías y aportar mis habilidades en trabajo en equipo y resolución de problemas.</p>
+                <div class="m-contact-actions">
+                    <a href="mailto:jhoelesquivel94@gmail.com" class="m-blob magnetic" data-cursor="Escribir"><span>Enviar un correo</span></a>
+                    <button class="btn btn-line btn-lg" id="copy-email" data-email="jhoelesquivel94@gmail.com">Copiar correo</button>
+                </div>
+                <div class="socials">
+                    <a href="https://github.com/jhoelesquivel94-lgtm/Projects" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/jhoel-esquivel-68459226a/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
         </section>
@@ -185,7 +144,10 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="script.js?v=6"></script>
-    <script type="module" src="dunes.js?v=5"></script>
+    <script src="vendor/lenis.min.js"></script>
+    <script src="vendor/gsap.min.js"></script>
+    <script src="vendor/ScrollTrigger.min.js"></script>
+    <script src="motion.js?v=7"></script>
+    <script type="module" src="dunes.js?v=7"></script>
 </body>
 </html>
