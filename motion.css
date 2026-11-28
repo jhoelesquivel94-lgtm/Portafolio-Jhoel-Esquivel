@@ -180,5 +180,7 @@ body.is-loading { overflow: hidden; }
     .m-manifesto .w { color: var(--fog); }
     .m-manifesto .w.hl { color: var(--sand); }
     .m-shot { clip-path: none; }
-    .m-skill-bar, .m-tl-line span { transform: none; }
+    .m-tl-line span { transform: none; }
+    .m-skill-bar { transform: scaleX(var(--w)); }
+    .m-projects-pin { height: auto; overflow-x: auto; }
 }
